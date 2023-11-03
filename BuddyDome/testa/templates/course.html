@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Courses {% endblock %}
+
+
+
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+    
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Courses </h2>
+        <div class="row d-flex justify-content-center text-center">
+            <ul class="breadcrumb">
+                <h4 class="white-text my-4">Learn about cloud and advance your skills it. You
+                    can explore the learning paths organized by level in the particular areas. 
+                    Each learning path has a set of video along with the prsentations.
+                    Get started now!</h4>
+              </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+</header>
+{%endblock%}
+
+{% block content %}
+<div>
+ 
+  <div class="row d-flex justify-content-center mb-3">
+    <div class="col-sm-4 mb-4">
+      <div class="card mb-7 mr-4 ml-4 box-shadow-hover" style="max-width: 500px;">
+      <section class="text-center mt-4">
+      
+        <div class="card-body">
+          <div style= margin:4px >
+<a href="{% url 'testa:createcourse' %}"<button type="button" class="btn btn-success btn-lg btn-bloc" > Create course </button> </a>
+          </div>
+<div style= margin:4px >
+<a href="{% url 'testa:requestcourse'%}"<button type="button" class="btn btn-success btn-lg btn-bloc" > Request a course </button> </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{%endblock%}

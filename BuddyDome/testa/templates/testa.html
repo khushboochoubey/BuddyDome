@@ -1,0 +1,30 @@
+]<html>
+<head>
+    {% load static %}
+    <title>How</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="banner">     
+        <div class="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'testa:test2' %}">Blog</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="{% url 'testa:test3' %}">Contribution</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>DESIGN WEB </h1>
+            <P>In the process of creating a website, it is important for team members to contribute their skills and expertise to ensure the success of the project.
+                One member of the team may have strong graphic design skills and be responsible for creating visually appealing elements such as logos and layout design. Another team member may have experience with web development and be responsible for implementing the technical aspects of the site, such as ensuring that it is mobile-responsive and secure.               
+                In addition to specific tasks, team members should also be willing to collaborate and communicate effectively to ensure that the project stays on track and meets the goals set out at the beginning. This may involve regular meetings, sharing updates and ideas, and providing constructive feedback to one another.                
+                Overall, the contributions of each team member are crucial in the creation of a successful website, as it takes a combination of diverse skills and teamwork to bring a project to fruition.</P>
+        <div>
+            <button type-="button"><span></span>watch </button>
+            <button type-="button"><span></span>comment </button>
+
+        </div>
+    </div>
+</body>
+</html>

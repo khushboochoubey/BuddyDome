@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/master_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my.css' %}">
+
+  </head>
+  <body>
+    <!-- navigation bar -->
+              <nav class="navbar navbar-expand-lg navbar bg-dark position-relative">
+
+
+                      <a class="navbar-brand" href="{% url 'index' %}" style="color:#FFFFFF;" >Home</a>
+                    <a class="navbar-brand" href="{% url 'testa:test2' %}" style="color:#FFFFFF;" >Blog</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                           aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                       </button>
+                      <div class="collapse navbar-collapse" id="basicExampleNav" >
+                        <ul class=" navbar-nav  mr-auto smooth-scroll " >
+                                <li class="nav-item">
+                                   <a class="navbar-brand" href="{% url 'curriculum:standard_list' %}" style="color:#FFFFFF;" >Curriculum</a>
+                                </li>
+                                {% if user.is_superuser %}
+                                <li class="nav-item ">
+                                   <a class="navbar-brand" href="{% url 'admin:index' %}" style="color:#FFFFFF;">Admin </a>
+                                </li>
+
+                                {%endif%}
+                                {% if user.is_authenticated %}
+
+                                    <li class="nav-item  ">
+                                      <a class="navbar-brand" href="{% url 'testa:community' %}" style="color:#FFFFFF;">Community</a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                      <a class="navbar-brand" href="{% url 'testa:test1' %}" style="color:#FFFFFF;">Guides</a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                      <a class="navbar-brand" href="{% url 'chat-home' %}" style="color:#FFFFFF;">Chat</a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                      <a class="navbar-brand" href="{% url 'profile' %}" style="color:#FFFFFF;">Profile</a>
+                                    </li>
+                                    <li>
+                                      <a class="navbar-brand" href="{% url 'change_pass' %}" style="color:#FFFFFF;">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a class="navbar-brand" href="{% url 'user_logout' %}" style="color:#FFFFFF;">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item ">
+                                        <a class="navbar-brand" href="{% url 'user_login' %}" style="color:#FFFFFF;">Login</a>
+                                    </li>
+                                    <li class="nav-item " >
+                                       <a class="navbar-brand" href="{% url 'register' %}" style="color:#FFFFFF;">Register</a>
+                                    </li>
+                                {% endif %}
+                                <li class="nav-item">
+                                  <a class="navbar-brand" href="{% url 'contact' %}" style="color:#FFFFFF;">Contact Us</a>
+                               </li>
+                        </ul>
+                      </div>
+                </div>
+              </nav>
+          {% block image_block %}
+          {% endblock %}
+
+
+    <div class="container">
+        {%block content%}
+
+        {%endblock%}
+    </div>
+
+    <footer class="page-footer" style="background-color:#C3C7BE  ;">
+      <div class="container">
+        <div class="row mt-4">
+                  <div class="col-md-4 mt-4">
+                            <h3>About Us</h3> <br>
+                            <p>This is a Learning Management System specialized for Cloud Computing created by group of 'VIT-B' Students</p>
+                  </div>
+                  <div class="col-md-4 mt-4">
+                            <h3>Group Members</h3>
+                            <ul>
+                              <li>Bromhon Baasudev Jena</li>
+                              <li>Ayush Vyas</li>
+                              <li>Ananta Paliwal</li>
+                              <li>Tapas Singhal</li>
+                              <li>Khushboo Choubey</li>
+                            </ul>
+                  </div>
+                  <div class="col-md-4 mt-4">
+                            <h3>Contact Us</h3>
+                            <ul>
+                              <li>VIT BHOPAL</li>
+                              <li>tapas.singhal2021@vitbhopal.ac.in</li>
+                                <ul>
+                              <li>contact number:9719548967</li>
+                               <li><a href="https://www.linkedin.com/in/tapas-singhal-b1380521a/">LinkedIn</a></li></ul>
+                              <li>bromhon.baasudev2021@vitbhopal.ac.in</li>
+                                <ul>
+                              <li>contact number:7751902555</li>
+                               <li><a href="https://www.linkedin.com/in/bromhon-baasudev-jena-872708228/">LinkedIn</a></li></ul>
+                            </ul>
+                  </div>
+        </div>
+        <div class="footer-copyright text-center py-3">
+            <p>©BuddyDome 2023 Copyright: All Copyrights Reserved </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Quiz {% endblock %}
+
+
+{% block image_block %}
+<header class="info-header">
+  <div id="page-intro" class="container-fluid d-flex align-items-center justify-content-center ">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-md-10 text-white">
+        <!-- heading -->
+        <h2 class="display-4 font-weight-bold  p-5 " style="color:#ff5722;" > Quiz </h2>
+        <div class="row d-flex justify-content-center text-center">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'testa:community' %}">Community</a></li>
+            <li class="disabled-text"><a href="{% url 'testa:test1' }">Quiz</a></li>
+          </ul>
+        </div>
+
+        <!-- divider -->
+        <hr style="color:#ff5722;">
+
+        <!-- description -->
+        <h4 class="white-text my-4">Quiz</h4>
+  </div></div></div>
+</header>
+{% endblock %}
+
+{% block content %}
+<!-- section 1 for standards-->
+
+<section id="best-features" class="text-center" >
+              <h2 class="mb-5 mt-5 font-weight-bold" style="color:#ff5722;">Quiz</h2>
+              <!-- class row for description-->
+              <div class = "quiz" style="padding-right:869px; ">
+            <div class="card" style="width: 67rem;  ">
+              <div class="card-body">
+                  <h5 class="card-title"style = "color:red ;">Quiz</h5>
+                  <p class="card-text">Our hearty thanks to the users who have used these website and shared them with the community in the spirit of free learning and knowledge sharing.</p>
+                   
+                  <a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_bl2UyYbqkVfeScm?trk=9c5017c9-5355-4f6d-92b6-3fc966171983&sc_channel=el" class="btn btn-primary" style="background-color:#00bcd4;">Start Quiz</a>
+                </div>
+              </div>
+            </div>
+
+          <br>
+          <br>
+          <br>
+
+            
+         {% for i in guides %}
+    <br>
+
+
+          <div class = "quiz" style="padding-right:869px;">
+            <div class="card quiz-std" style="width: 67rem;  ">
+              <div class="card-body">
+                  {% if i.type == 'RampUp' %}
+                  <img style="float: left;margin-right: 30px;" src="{% static 'Images/ramp.png' %}" height='200px' width="320px">
+                  {% else %}
+                  <img style="float: right;margin-right: 30px;" src="{% static 'Images/practical.png' %}" height='200px' width="320px">
+                  {% endif %}
+                  <h5 class="card-title" style = "color:red ; font-size:30px;">{{i.nameb}}</h5>
+                  <p class="quizp">{{i.description}}</p>
+                  <a href="{{i.Link}}" class="btn btn-primary quiz-bt" style="background-color:#00bcd4;"><strong>Download</strong></a>
+
+              </div>
+            </div>
+          </div>
+
+
+          {% endfor %}
+
+
+</section>
+
+{%endblock%}
+
+
+
